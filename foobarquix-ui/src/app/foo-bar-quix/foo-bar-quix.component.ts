@@ -8,6 +8,8 @@ import { FooBarQuixService } from '../foo-bar-quix.service';
 })
 export class FooBarQuixComponent implements OnInit, OnDestroy {
 
+  submitedNumbers : NumberConverted[]  = [];
+
   constructor(private fooBarQuixService: FooBarQuixService) { }
 
   ngOnInit(): void {
@@ -17,6 +19,13 @@ export class FooBarQuixComponent implements OnInit, OnDestroy {
   }
 
   convertNumber(inputNumber: number): void {
+    const obs= this.fooBarQuixService.convertNumber(inputNumber);
+    obs.subscribe(
+      res => {
+        let nbConverted : NumberConverted = {numberToConvert:inputNumber,result:res['result']};
+        this.submitedNumbers.push(nbConverted)
+      }
+    )
   }
 
 }
