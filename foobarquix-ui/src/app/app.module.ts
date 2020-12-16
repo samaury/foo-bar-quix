@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FrontEndInstructionComponent } from './front-end-instruction/front-end-instruction.component';
 import { BackEndInstructionComponent } from './back-end-instruction/back-end-instruction.component';
+import { FooBarQuixAboutComponent } from './foo-bar-quix-about/foo-bar-quix-about.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { BackEndInstructionComponent } from './back-end-instruction/back-end-ins
     HomeComponent,
     NavBarComponent, 
     FrontEndInstructionComponent,
-    BackEndInstructionComponent
+    BackEndInstructionComponent,
+    FooBarQuixAboutComponent
   ],
   imports: [
     BrowserModule, ReactiveFormsModule, HttpClientModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      {path: 'foo-bar-quix', component: FooBarQuixComponent}
+      {path: 'foo-bar-quix', component: FooBarQuixComponent},
+      {path: 'foo-bar-about', component: FooBarQuixAboutComponent}
     ])
   ],
   providers: [
