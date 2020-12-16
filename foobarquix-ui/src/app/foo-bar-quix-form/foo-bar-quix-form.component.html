@@ -1,4 +1,4 @@
 <div class="container"> 
-        <input type="number"  />
-        <button (ngSubmit)="onSubmit()">Convert</button>
+        <input type="number"  #myNumber/>
+        <button (click)="onSubmit(myNumber.value)" class="active">Convert</button>
 </div>

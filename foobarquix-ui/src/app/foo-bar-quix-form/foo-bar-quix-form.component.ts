@@ -7,7 +7,7 @@ import { FooBarQuixService } from '../foo-bar-quix.service';
   templateUrl: './foo-bar-quix-form.component.html'
 })
 export class FooBarQuixFormComponent implements OnInit {
-
+  @Output() submitNumberOutput = new EventEmitter<number>();
   constructor() {
 
   }
@@ -15,7 +15,7 @@ export class FooBarQuixFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    console.log('onSubmit called')
+  onSubmit(valueToSubmit){
+    this.submitNumberOutput.emit(valueToSubmit)
   }
 } 

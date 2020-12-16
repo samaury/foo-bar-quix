@@ -8,7 +8,7 @@ import { FooBarQuixService } from '../foo-bar-quix.service';
 })
 export class FooBarQuixComponent implements OnInit, OnDestroy {
 
-  submitedNumbers : NumberConverted[]  = [{numberToConvert:1, result:'1'},{numberToConvert:3, result:'Test'}];
+  submitedNumbers : NumberConverted[]  = [];
 
   constructor(private fooBarQuixService: FooBarQuixService) { }
 
@@ -24,8 +24,6 @@ export class FooBarQuixComponent implements OnInit, OnDestroy {
       res => {
         let nbConverted : NumberConverted = {numberToConvert:inputNumber,result:res['result']};
         this.submitedNumbers.push(nbConverted)
-        console.debug(nbConverted);
-        alert(nbConverted.result)
       }
     )
   }
