@@ -16,9 +16,10 @@ class FooBarQuixService {
         }
 
         val tokenList = mutableListOf<Pair<Int, String>>()
-        inputNumber.countTokens(3, tokenList)
-        inputNumber.countTokens(5, tokenList)
-        inputNumber.countTokens(7, tokenList)
+        inputNumber.processTokenPositions(3, tokenList)
+        inputNumber.processTokenPositions(5, tokenList)
+        inputNumber.processTokenPositions(7, tokenList)
+        inputNumber.processTokenPositions(71, tokenList)
         tokenList.sortBy { item -> item.first }
 
         for (item in tokenList) {
@@ -40,6 +41,9 @@ class FooBarQuixService {
         return this.toString().contains(token.toString())
     }
 
+    /*
+    @Deprecated : please cf @Int.registerPositions
+     */
     private fun Int.countTokens(pattern: Int, liste: MutableList<Pair<Int, String>>) {
         val iMin = 0
         val iMax = this.toString().length
@@ -54,6 +58,16 @@ class FooBarQuixService {
                 }
             }
         }
+    }
+
+    private fun Int.processTokenPositions(pattern: Int, liste: MutableList<Pair<Int, String>>) {
+        var index = this.toString().indexOf(pattern.toString());
+        while (index >= 0) {
+            liste.add(Pair(index, pattern.toString()));
+            index++;
+            index = this.toString().indexOf(pattern.toString(), index);
+        }
+
     }
 
 
