@@ -19,7 +19,6 @@ class FooBarQuixService {
         inputNumber.processTokenPositions(3, tokenList)
         inputNumber.processTokenPositions(5, tokenList)
         inputNumber.processTokenPositions(7, tokenList)
-        inputNumber.processTokenPositions(71, tokenList)
         tokenList.sortBy { item -> item.first }
 
         for (item in tokenList) {
