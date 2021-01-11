@@ -42,7 +42,7 @@ class FooBarQuixService {
     }
 
     /*
-    @Deprecated : please cf @Int.registerPositions
+    @Deprecated : please cf @Int.processTokenPositions
      */
     private fun Int.countTokens(pattern: Int, liste: MutableList<Pair<Int, String>>) {
         val iMin = 0
